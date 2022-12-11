@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Асинхронность в Node.js - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Асинхронность в Node.js</h2>
+				<div class="entry">
+					
+<P style="FONT-SIZE: 18px">Асинхронность представляет возможность одновременно 
+выполнять сразу несколько задач. Асинхронность играет большую роль в Node.js. 
+Например, допустим в файле приложения app.js у нас расположен следующий код: 
+<P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">function 
+displaySync(data){ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(data); 
+<BR>} <BR>console.log("Начало работы программы"); <BR><BR>displaySync("Обработка 
+данных..."); <BR><BR>console.log("Завершение работы программы"); </P>
+<P style="FONT-SIZE: 18px">Это стандартный синхронный код, все вызовы здесь 
+выполняются последовательно, что мы можем увидеть, если мы запустим приложение: 
+<P style="FONT-SIZE: 18px"><IMG class=image alt=pic5.png 
+src="user-images/pic5.png"> 
+
+<P></P>
+<P style="FONT-SIZE: 18px">Для рассмотрения асинхронности изменим код файла 
+app.js следующим образом: 
+<P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">function 
+display(data, callback){ <BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // с 
+помощью случайного числа определяем ошибку 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var randInt = Math.random() * (10 
+- 1) + 1; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var err = randInt&gt;5? 
+new Error("Ошибка выполнения. randInt больше 5"): null; 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setTimeout(function(){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+callback(err, data); <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, 0); 
+<BR>} <BR><BR>console.log("Начало работы программы"); <BR><BR>display("Обработка 
+данных...", function (err, data){ 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(err) throw 
+err;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(data); 
+<BR>}); <BR></P>
+<P style="FONT-SIZE: 18px">В начале также определяется функция display, но 
+теперь кроме данных в качестве второго параметра она принимает функцию обратного 
+вызова, которая и обрабатывает данные. <BR>Эта функция callback принимает два 
+параметра - информацию об ошибке и собственно данные. Это общая модель функций 
+обратного вызова, которые передаются в асинхронные методы - первым идет 
+параметр, представляющий ошибку, а второй - данные. <BR><BR>Для имитации ошибки 
+используется случайное число: если оно больше 5, то создаем объект ошибки - 
+объект Error, иначе же он равен null. <BR><BR>И последний важный момент - 
+выполнение функции обратного вызова в функции setTimeout(). Это глобальная 
+функция, которая принимает в качестве первого параметра функцию обратного 
+вызова, а в качестве второго - промежуток, через который функция обратного 
+вызова будет выполняться. Для нашей задачи вполне подойдет промежуток в 0 
+миллисекунд. </P>
+<P style="FONT-SIZE: 16px"><A 
+href="page8.html">Назад: Объект 
+global и глобальные переменные</A> |&nbsp;<A 
+href="page37.html"><FONT 
+color=#ff0000>Далее: Ассинхронность js стр.2</FONT></A></P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li class="active"><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

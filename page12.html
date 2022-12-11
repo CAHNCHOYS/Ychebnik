@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Stream - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Stream</h2>
+				<div class="entry">
+					
+<P style="FONT-SIZE: 18px">Stream представляет поток данных. Потоки бывают 
+различных типов, среди которых можно выделить потоки для чтения и потоки для 
+записи. При создании сервера в первой главе мы уже сталкивались с потоками: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+http = require("http"); <BR><BR>http.createServer(function(request, response){ 
+<BR><BR>}).listen(3000); <BR></P>
+<P style="FONT-SIZE: 18px">Параметры request и response, которые передаются в 
+функцию и с помощью которых мы можем получать данные о запросе и управлять 
+ответом, как раз представляют собой потоки: request - поток для чтения, а 
+response - поток для записи. Используя потоки чтения и записи, мы можем 
+считывать и записывать информацию в файл. Например: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+fs = require("fs"); <BR>let writeableStream = fs.createWriteStream("hello.txt"); 
+<BR>writeableStream.write("Привет мир!"); <BR>writeableStream.write("Продолжение 
+записи \n"); <BR>writeableStream.end("Завершение записи"); <BR>let 
+readableStream = fs.createReadStream("hello.txt", "utf8"); 
+<BR><BR>readableStream.on("data", function(chunk){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(chunk); <BR>}); <BR><BR></P>
+<P style="FONT-SIZE: 18px">Для создания потока для записи применяется метод 
+fs.createWriteStream(), в который передается название файла. Если вдруг в папке 
+нет такого файла, то он создается. <BR>Запись данных производится с помощью 
+метода write(), в который передаются данные. Для окончания записи вызывается 
+метод end(). <BR>После этого в папке проекта появляется файл hello.txt, который 
+можно открыть в любом текстовом редакторе. <BR>Для создания потока для чтения 
+используется метод fs.createReadStream(), в который также передается название 
+файла. В качестве опционального параметра здесь передается кодировка, что 
+позволит сразу при чтении кодировать считанные данные в строку в указанной 
+кодировке. <BR>Сам поток разбивается на ряд кусков или чанков (chunk). И при 
+считывании каждого такого куска, возникает событие data. С помощью метода on() 
+мы можем подписаться на это событие и вывести каждый кусок данных на консоль: 
+</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">readableStream.on("data", 
+function(chunk){ <BR>&nbsp;&nbsp;&nbsp; console.log(chunk); <BR>}); </P>
+<P style="FONT-SIZE: 18px">Запустим файл на выполнение:</P>
+<P style="FONT-SIZE: 18px"><IMG class=image alt=pic10.png 
+src="user-images/pic10.png"></P>
+<P style="FONT-SIZE: 18px">Только работой с файлами функциональность потоков не 
+ограничивается, также имеются сетевые потоки, потоки шифрования, архивации и 
+т.д., но общие принципы работы с ними будут те же, что и у файловых потоков.</P>
+<P style="FONT-SIZE: 18px"><A 
+href="page40.html">Назад: События 
+стр. 3</A> | <A 
+href="page27.html"><FONT 
+color=#ff0000>Далее: Глава 3. Сервер</FONT></A></P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li class="active"><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

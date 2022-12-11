@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Основные операции с данными - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Основные операции с данными</h2>
+				<div class="entry">
+					<P style="FONT-SIZE: 18px">Все операции с данными опираются на команды языка 
+SQL, про которые подробно можно прочитать в каком-нибудь руководствее. Тем не 
+менее рассмотрим вкратце базовые операции с бд. <BR>Создание базы данных 
+<BR>Создадим базу данных на сервере MySQL через Node.js:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>const connection = mysql.createConnection({ 
+<BR>&nbsp; host: "localhost", <BR>&nbsp; user: "root", <BR>&nbsp; password: 
+"123456" <BR>}); <BR>connection.query("CREATE DATABASE usersdb2", <BR>&nbsp; 
+function(err, results) { <BR>&nbsp;&nbsp; if(err) console.log(err); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; else console.log("База данных создана"); <BR>}); 
+<BR>connection.end(); <BR></P>
+<P>В данном случае посредство команды CREATE DATABASE создается база данных 
+usersdb2. </P>
+<P style="FONT-SIZE: 32px">Создание таблиц</P>
+<P style="FONT-SIZE: 18px">Теперь добавим в выше созданную базу данныз usersdb2 
+таблицу:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>const connection = mysql.createConnection({ 
+<BR>&nbsp; host: "localhost", <BR>&nbsp; user: "root", <BR>&nbsp; database: 
+"usersdb2", <BR>&nbsp; password: "123456" <BR>}); <BR>const sql = `create table 
+if not exists users( <BR>&nbsp;&nbsp; id int primary key auto_increment, 
+<BR>&nbsp;&nbsp; name varchar(255) not null, <BR>&nbsp;&nbsp; age int not null 
+<BR>)`; <BR><BR>connection.query(sql, function(err, results) { 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; if(err) console.log(err); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else console.log("Таблица 
+создана"); <BR>&nbsp;}); <BR>connection.end(); <BR></P>
+<P style="FONT-SIZE: 32px">Добавление данных</P>
+<P style="FONT-SIZE: 18px">Для добавления применяется SQL-команда INSERT. 
+Добавим данные в ранее созданную таблицу users:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>&nbsp;&nbsp; const connection = 
+mysql.createConnection({ <BR>&nbsp;&nbsp;host: "localhost", 
+<BR>&nbsp;&nbsp;user: "root", <BR>&nbsp;&nbsp;database: "usersdb2", 
+<BR>&nbsp;&nbsp;password: "123456" <BR>}); <BR>&nbsp; const sql = `INSERT INTO 
+users(name, age) VALUES('Sam', 31)`; <BR>&nbsp; connection.query(sql, 
+function(err, results) { <BR>&nbsp;&nbsp;&nbsp;&nbsp;if(err) console.log(err); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;console.log(results); <BR>}); <BR>&nbsp; 
+connection.end(); <BR></P>
+<P style="FONT-SIZE: 18px">В данном случае в таблицу добавляется одна строка, 
+где столбец name имеет значение "Sam", столбец age - значение 31. С помощью 
+параметра results в функции обратного вызова мы можем получить результаты 
+операции. Например, в моем случае консольный вызов будет следующим: </P>
+<P style="FONT-SIZE: 18px">C:\node\mysqlapp&gt; node app.js <BR>ResultSetHeader 
+{ <BR>&nbsp;fieldCount: 0, <BR>&nbsp;affectedRows: 1, <BR>&nbsp;insertId: 1, 
+<BR>&nbsp;info: '', <BR>&nbsp;serverStatus: 2, <BR>&nbsp;warningStatus: 0 } </P>
+<P style="FONT-SIZE: 18px">В данном случае мы видим, что возвращается объект, 
+где можно выделить ряд свойств. Прежде всего, это affectedRows - количество 
+затронутых операцией строк (в данном случае количество добавленных строк) и 
+insertId - идентификатор (значение поля id) добавленной записи. </P>
+<P style="FONT-SIZE: 32px">Добавление множества значений </P>
+<P style="FONT-SIZE: 18px">Добавим сразу несколько значений:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>const connection = mysql.createConnection({ 
+<BR>&nbsp; host: "localhost", <BR>&nbsp; user: "root", <BR>&nbsp; database: 
+"usersdb2", <BR>&nbsp; password: "123456" <BR>}); <BR>const users = [ <BR>&nbsp; 
+["Bob", 22], <BR>&nbsp;&nbsp;["Alice", 25], <BR>&nbsp; ["Kate", 28] <BR>]; const 
+sql = `INSERT INTO users(name, age) VALUES ?`; <BR><BR>connection.query(sql, 
+[users], function(err, results) { <BR>&nbsp; if(err) console.log(err); 
+<BR>&nbsp; console.log(results); <BR>}); connection.end(); <BR></P>
+<P style="FONT-SIZE: 18px"><A 
+href="page22.html">Назад: 
+Выполнение запросов к MYSQL</A> | <A 
+href="page52.html"><FONT 
+color=#ff0000>Далее: Основные операции с данными стр.2</FONT></A><FONT 
+color=#ff0000> </FONT></P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li class="active"><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

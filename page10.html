@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>События - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">События</h2>
+				<div class="entry">
+					
+<P style="FONT-SIZE: 18px">Подавляющее большинство функционала Node.js применяет 
+асинхронную событийную архитектуру, которая использует специальные объекты - 
+эмиттеры для генерации различных событий, которые обрабатываются специальными 
+функциями - обработчиками или слушателями событий. Все объекты, которые 
+генерируют события, представляют экземпляры класса EventEmitter. С помощью 
+функции eventEmitter.on() к определенному событию по имени цепляется функция 
+обработчика. Причем для одного события можно указать множество обработчиков. 
+Когда объект EventEmitter генерирует событие, происходит выполнение всех этих 
+обработчиков. Рассмотрим применение объекта EventEmitter и событий. Для этого 
+определим следующий файл app.js: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+Emitter = require("events"); <BR>let emitter = new Emitter(); <BR>let eventName 
+= "greet"; <BR>emitter.on(eventName, function(){ <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+console.log("Hello all!"); <BR>}); <BR><BR>emitter.on(eventName, function(){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; console.log("Привет!"); <BR>}); 
+<BR><BR>emitter.emit(eventName); <BR></P>
+<P style="FONT-SIZE: 18px">Весь необходимый функционал сосредоточен в модуле 
+events, который необходимо подключить. С помощью функции on() связываем событие, 
+которое передается в качестве первого параметра, с некоторой функцией, которая 
+передается в качестве второго параметра. В данном случае событие называется 
+"greet". Для генерации события и вызова связанных с ним обработчиков выполняется 
+функция emitter.emit(), в которое передается название события. И при запуске 
+приложения будут вызваны все обработчики:</P>
+<P style="FONT-SIZE: 18px"><IMG class=image alt=pic8.png 
+src="user-images/pic8.png"></P>
+<P style="FONT-SIZE: 24px">Передача параметров событию </P>
+<P style="FONT-SIZE: 18px">При вызове события в качестве второго параметра в 
+функцию emit можно передавать некоторый объект, который передается в функцию 
+обработчика события: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+Emitter = require("events"); <BR>let emitter = new Emitter(); <BR>let eventName 
+= "greet"; <BR>emitter.on(eventName, function(data){ <BR>&nbsp;&nbsp;&nbsp; 
+console.log(data); <BR>}); <BR><BR>emitter.emit(eventName, "Привет пир!"); </P>
+<P><A href="page38.html">Назад: 
+Ассинхронность в NodeJS стр3</A>. |&nbsp; <A 
+href="page39.html"><FONT 
+color=#ff0000>Далее: События стр.2</FONT></A> </P>
+<P>&nbsp;</P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li class="active"><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

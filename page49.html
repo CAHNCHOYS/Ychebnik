@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Создание API стр. 3 - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Создание API стр. 3</h2>
+				<div class="entry">
+					<P style="FONT-SIZE: 18px">Для обработки запросов определено пять методов для 
+каждого типа запросов: app.get()/app.post()/app.delete()/app.put() Когда 
+приложение получает запрос типа GET по адресу "api/users", то срабатывает 
+следующий метод: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">app.get("/api/users", 
+function(req, res){ <BR>&nbsp;&nbsp;&nbsp; const content = 
+fs.readFileSync(filePath,"utf8"); <BR>&nbsp;&nbsp;&nbsp; const users = 
+JSON.parse(content); <BR>&nbsp;&nbsp;&nbsp; res.send(users); <BR>}); <BR></P>
+<P style="FONT-SIZE: 18px">В качестве результата обработки мы должны отправить 
+массив пользователей, которые считываем из файла. Для упрощения кода приложения 
+в рамкаха данного экспериментального проекта для чтения/записи файла применяются 
+синхронные методы fs.readFileSync()/fs.writeFileSync(). Но в реальности, как 
+правило, работа с данными будет идти через базу данных, а далее мы все это 
+рассмотрим на примере MongoDB. И чтобы получить данные из файла с помощью метода 
+fs.readFileSync() считываем данные в строку, которую парсим в массив объектов с 
+помощью функции JSON.parse(). И в конце полученные данные отправляем клиенту 
+методом res.send(). Аналогично работает другой метод app.get(), который 
+срабатывает, когда в адресе указан id пользователя: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">app.get("/api/users/:id", 
+function(req, res){ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const id = 
+req.params.id; // получаем id&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+const content = fs.readFileSync(filePath, 
+"utf8");&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const users = 
+JSON.parse(content);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let user = 
+null;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // находим в массиве 
+пользователя по id&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var i=0; 
+i&lt;USERS.LENGTH; i++<BR i++){>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+if(users[i].id==id){&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp; user = 
+users[i];&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;break; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp; } <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // отправляем 
+пользователя <BR>&nbsp;&nbsp;&nbsp;&nbsp; if(user){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.send(user); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else{ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.status(404).send(); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR>}); <BR></P>
+<P style="FONT-SIZE: 18px">При получении запроса методом POST нам надо применить 
+парсер jsonParser для извлечения данных из запроса:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">// 
+получение отправленных данных <BR>app.post("/api/users", jsonParser, function 
+(req, res) { <BR>if(!req.body) return res.sendStatus(400); <BR>const userName = 
+req.body.name; <BR>const userAge = req.body.age; <BR>let user = {name: userName, 
+age: userAge}; <BR>let data = fs.readFileSync(filePath, "utf8"); <BR>let users = 
+JSON.parse(data); <BR>// находим максимальный id <BR>const id = 
+Math.max.apply(Math,users.map(function(o){return o.id;})) <BR>// увеличиваем его 
+на единицу <BR>user.id = id+1; <BR>// добавляем пользователя в массив 
+<BR>users.push(user); <BR>data = JSON.stringify(users); <BR>// перезаписываем 
+файл с новыми данными <BR>fs.writeFileSync("users.json", data); 
+<BR>res.send(user); <BR>}); <BR></P>
+<P style="FONT-SIZE: 18px">Похожие действия выполняются при удалении и изменении 
+</P>
+<P style="FONT-SIZE: 18px"><A 
+href="page43.html">Назад: Создании 
+API стр. 2</A> | <A 
+href="page50.html"><FONT 
+color=#ff0000>Далее: Создание API стр.4</FONT></A> </P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

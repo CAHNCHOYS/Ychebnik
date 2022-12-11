@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Подключение к MySQL - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Подключение к MySQL</h2>
+				<div class="entry">
+					<P style="FONT-SIZE: 18px">Для работы с сервером MySQL в Node.js можно 
+использовать ряд драйверов. Самые популярные из них mysql и mysql2. По большей 
+части они совместимы. В данном случае мы будем использовать mysql2, так как, 
+судя по ряду тестов, он предоставляет большую производительность. Итак, 
+установим пакет mysql2: <SPAN style="COLOR: coral">npm install --save mysql2 
+</SPAN></P>
+<P style="FONT-SIZE: 18px">Создание подключения <BR>Для создания подключения 
+применяется метод createConnection(), который в качестве параметра принимает 
+настройки подключения и возвращает объект, представляющий подключение. </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>const connection = mysql.createConnection({ 
+<BR>&nbsp;&nbsp;&nbsp; host: "localhost", <BR>&nbsp;&nbsp;&nbsp; user: 
+"root",&nbsp;<BR>&nbsp;&nbsp;&nbsp; database: "usersdb", <BR>&nbsp;&nbsp;&nbsp; 
+password: "пароль_от_сервера" <BR>}); <BR></P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Передаваемые 
+в метод настройки конфигурации могут содержать ряд параметров. Наиболее 
+используемые из них:</P>
+<UL 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">host</SPAN>: хост, на котором запущен сервер mysql. 
+  По умолчанию имеет значение "localhost"</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">port</SPAN>: номер порта, на котором запущен сервер 
+  mysql. По умолчанию имеет значение "3306"</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">user</SPAN>: пользователь MySQL, который 
+  используется для подключения</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">password</SPAN>: пароль для пользователя MySQL</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">database</SPAN>: имя базы данных, к которой идет 
+  подключение. Необязательный параметр. Если он не указан, то подключение идет в 
+  целом к северу</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">charset</SPAN>: кодировка для подключения, например, 
+  по умолчанию используется "UTF8_GENERAL_CI".</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word"><SPAN class=b 
+  style="FONT-WEIGHT: bold">timezone</SPAN>: часовой пояс сервера MySQL. This is 
+  used to type cast server date/time values to JavaScript. По умолчанию имеет 
+  значение "local"</P></LI></UL>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Для 
+установки подключения мы можем использовать метод<SPAN>&nbsp;</SPAN><SPAN 
+class=b style="FONT-WEIGHT: bold">connect()</SPAN><SPAN>&nbsp;</SPAN>объекта 
+connection:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2");&nbsp;<BR>&nbsp;&nbsp;const connection = 
+mysql.createConnection({ <BR>&nbsp;&nbsp;host: "localhost", 
+<BR>&nbsp;&nbsp;user: "root", <BR>&nbsp;&nbsp;database: "usersdb", 
+<BR>&nbsp;&nbsp;password: "пароль_от_сервера" <BR>}); 
+<BR>&nbsp;connection.connect(function(err){ <BR>&nbsp;&nbsp;&nbsp;&nbsp;if (err) 
+{ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return console.error("Ошибка: " + 
+err.message); <BR>&nbsp;&nbsp;&nbsp;&nbsp;} <BR>&nbsp;&nbsp;&nbsp;&nbsp;else{ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Подключение к серверу MySQL 
+успешно установлено"); <BR>&nbsp;&nbsp;&nbsp;&nbsp;} <BR>&nbsp;}); <BR></P>
+<P style="FONT-SIZE: 18px">Метод connect() принимает функцию, параметр которой 
+содержит ошибка, которая возникла при подключении.</P>
+<P>Закрытие подключения <BR>Для закрытия подключения применяется метод 
+end():</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+mysql = require("mysql2"); <BR>const connection = mysql.createConnection({ 
+<BR>&nbsp;&nbsp; host: "localhost", <BR>&nbsp;&nbsp; user: "root", 
+<BR>&nbsp;&nbsp; database: "usersdb", <BR>&nbsp;&nbsp;&nbsp; password: 
+"пароль_от_сервера" <BR>}); <BR>// тестирование подключения 
+<BR>connection.connect(function(err){ <BR>&nbsp;&nbsp;&nbsp; if (err) { 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return console.error("Ошибка: " + 
+err.message); <BR>&nbsp;&nbsp;&nbsp;&nbsp; } <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+else{ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+console.log("Подключение к серверу MySQL успешно установлено"); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR>}); <BR>// закрытие подключения 
+<BR>connection.end(function(err) { <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (err) { 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return console.log("Ошибка: 
+" + err.message); <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR <BR>&gt; 
+console.log("Подключение закрыто"); }); <BR></P>
+<P 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>При 
+запуске приложения и удачном подключении-закрытии подключения мы увидим на 
+консоли:</P>
+<DIV class=console 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 5px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><PRE class=consoletext style="MAX-WIDTH: 99%; BORDER-TOP: rgb(204,204,204) 1px solid; FONT-FAMILY: var(--main-font-family); BORDER-RIGHT: rgb(204,204,204) 1px solid; WHITE-SPACE: pre-wrap; BORDER-BOTTOM: rgb(204,204,204) 1px solid; COLOR: ; PADDING-LEFT: 10px; CLEAR: both; BORDER-LEFT: rgb(204,204,204) 1px solid; LINE-HEIGHT: 25px; overflow-wrap: break-word">Подключение к серверу MySQL успешно установлено
+Подключение закрыто
+</PRE></DIV>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Метод<SPAN>&nbsp;</SPAN><SPAN 
+class=b style="FONT-WEIGHT: bold">end()</SPAN><SPAN>&nbsp;</SPAN>гарантирует, 
+что перед закрытием подключения к бд будут выполнены все оставшиеся запросы, 
+которые не завершились к моменту вызова метода.</P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Если 
+мы не вызовем этот метод, то подключение будет оставаться активным, и приложение 
+Node.js продолжит свою работу, пока сервер MySQL не закроет подключение. 
+<BR>Если же нам надо немедленно закрыть подключение, не дожидаясь выполнения 
+оставшихся запросов, то в этом случае можно применить метод destroy():</P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word"><A 
+href="page50.html">Назад: Создание 
+API стр. 4</A> | <A 
+href="page22.html"><FONT 
+color=#ff0000>Далее: Выполнение запросов к MYSQL</FONT></A><FONT color=#ff0000> 
+</FONT></P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li class="active"><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

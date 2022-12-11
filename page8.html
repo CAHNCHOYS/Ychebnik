@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Объект global и глобальные переменные - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Объект global и глобальные переменные</h2>
+				<div class="entry">
+					<P style="FONT-SIZE: 18px">Node.js предоставляет специальный объект global, 
+который предоставляет доступ к глобальным, то есть доступным из каждого модуля 
+приложения, переменным и функциям. Примерным аналогом данного объекта в 
+javascript для браузера является объект window. Все доступные глобальные объекты 
+можно посмотреть в документации. <BR>Для примера создадим следующий модуль 
+greeting.js: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">let 
+currentDate = new Date(); <BR><BR>global.date = currentDate; 
+<BR>module.exports.getMessage = function(){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let hour = currentDate.getHours(); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(hour &gt;16) 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;return "Добрый вечер, " + global.name; 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else if(hour &gt;10) 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+"Добрый день, " + name; <BR>else 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return "Доброе утро, " + 
+name; <BR>} </P>
+<P style="FONT-SIZE: 18px">Здесь, во-первых, происходит установка глобальной 
+переменной date: global.date = currentDate; Во-вторых, в модуле получаем 
+глобальную переменную name, которая будет установлена из вне. При этом 
+обратиться к глобальной переменной name мы можем через объект global: 
+global.name, либо просто через имя name, так как переменная глобальная. 
+<BR>Определим следующий файл приложения app.js: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2"><BR>const 
+greeting = require("./greeting"); <BR><BR>global.name = "Eugene"; 
+<BR><BR>global.console.log(date); <BR>console.log(greeting.getMessage()); 
+<BR></P>
+<P style="FONT-SIZE: 18px">Здесь устанавливаем глобальную переменную name, 
+которую мы получаем в модуле greeting.js. И также выводим на консоль глобальную 
+переменную date. Причем все глобальные функции и объекты, например, console, 
+также доступны внутри global, поэтому мы можем написать и global.console.log(), 
+и просто console.log(). Запустим файл app.js: </P>
+<P style="FONT-SIZE: 18px"><IMG class=image alt=4pic.png 
+src="user-images/4pic.png"></P>
+<P style="FONT-SIZE: 18px"><A 
+href="page36.html">Назад: работа с 
+модулями стр.2</A> | <A 
+href="page9.html"><FONT 
+color=#ff0000>Далее: ассинхронность в NodeJs</FONT></A></P>
+
+
+<div class="test" id="page8.simpletest" style="clear:both;">
+<div class="question" style="padding-top: 10px; padding-bottom: 10px;" id="Q0">
+<div style="clear:both;"><strong>Название глобального объекта в NodeJs</strong></div>
+<input type="hidden" id="Q0_h" value="" />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A0" /> global<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A1" /> window<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A2" /> document<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A3" /> browser<br />
+</div><div id="test_result" style="clear:both"><input class="submit" type="submit" onclick="checkTest();" value="Завершить тест" /></div>
+</div>
+<script src="user-tests/page8.simpletest.js" type="text/javascript"></script>
+
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li class="active"><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

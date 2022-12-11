@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Router - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Router</h2>
+				<div class="entry">
+					<P style="FONT-SIZE: 18px">Router позволяет определить дочерние подмаршруты со 
+своими обработчиками относительно некоторого главного маршрута. Например, 
+определим следующее приложение: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+express = require("express"); <BR>const app = express(); <BR>app.use("/about", 
+function (request, response) { <BR>&nbsp;&nbsp;&nbsp; response.send("О сайте"); 
+<BR>}); <BR>app.use("/products/create",function (request, response) { 
+<BR>&nbsp;&nbsp;&nbsp; response.send("Добавление товара"); <BR>}); 
+<BR>app.use("/products/:id",function (request, response) { 
+<BR>&nbsp;&nbsp;&nbsp; response.send(`Товар ${request.params.id}`); <BR>}); 
+<BR>app.use("/products/",function (request, response) { <BR>&nbsp;&nbsp;&nbsp; 
+response.send("Список товаров"); <BR>}); <BR>app.use("/", function (request, 
+response) { <BR>&nbsp;&nbsp;&nbsp;&nbsp; response.send("Главная страница"); 
+<BR>}); <BR>app.listen(3000); <BR></P>
+<P style="FONT-SIZE: 18px">Здесь у нас есть пять маршрутов, которые 
+обрабатываются различными обработчиками. Но три из этих маршрутов начинаются с 
+"/products" и условно относятся к некоторому функционалу по работе с товарами 
+(просмотр списка товаров, просмотр одного товара по id и добавление товара). 
+Объект Router позволяет связать подобный функционал в одно целое и упростить 
+управление им. Например, перепишем предыдущий пример с использованием объекта 
+Router: </P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+express = require("express"); <BR>const app = express(); <BR>// определяем 
+Router <BR>const productRouter = express.Router(); <BR>// определяем маршруты и 
+их обработчики внутри роутера <BR>productRouter.use("/create", function(request, 
+response){ <BR>&nbsp;&nbsp;&nbsp; response.send("Добавление товара"); <BR>}); 
+<BR>productRouter.use("/:id", function(request, response){ 
+<BR>&nbsp;&nbsp;&nbsp; response.send(`Товар ${request.params.id}`); <BR>}); 
+<BR>productRouter.use("/", function(request, response){ <BR>&nbsp;&nbsp;&nbsp; 
+response.send("Список товаров"); <BR>}); <BR>// сопотавляем роутер с конечной 
+точкой "/products" <BR>app.use("/products", productRouter); 
+<BR><BR>app.use("/about", function (request, response) { <BR>&nbsp;&nbsp;&nbsp; 
+response.send("О сайте"); <BR>}); <BR>app.use("/", function (request, response) 
+{ <BR>&nbsp;&nbsp;&nbsp;&nbsp; response.send("Главная страница"); <BR>}); 
+<BR>app.listen(3000); <BR></P>
+<P style="FONT-SIZE: 18px">Здесь определен объект productRouter, который 
+обрабатывает все запросы по маршруту "/products". Это главный маршрут. Однако в 
+рамках этого маршрута может быть подмаршрут "/" со своим обработчиком, а также 
+подмаршруты "/:id" и "/create", которые также имеют свои обработчики.</P>
+<P style="FONT-SIZE: 18px"><IMG class=image style="HEIGHT: 225px; WIDTH: 441px" 
+alt=pic26.png 
+src="user-images/pic26.png" 
+width=482 height=225><IMG class=image style="HEIGHT: 225px; WIDTH: 440px" 
+alt=pic27.png 
+src="user-images/pic27.png" 
+width=482 height=225></P>
+<P style="FONT-SIZE: 18px"><A 
+href="page18.html">Назад: Post 
+Запросы и отправка форм</A> | <A 
+href="page20.html"><FONT 
+color=#ff0000>Далее: Создание API</FONT></A></P>
+
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li class="active"><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

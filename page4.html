@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Первое приложение - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Первое приложение</h2>
+				<div class="entry">
+					<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Напишем 
+первое простейшее приложение для NodeJS. Для создания приложений можно 
+использовать практически все стандартные конструкции языка JavaScript. 
+Исключением является работа с DOM, так как приложение будет запускаться на 
+сервере, а не в браузере, поэтому DOM и такие объекты 
+как<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">window</CODE><SPAN>&nbsp;</SPAN>или<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">document</CODE><SPAN>&nbsp;</SPAN>в данном случае 
+нам будут недоступны.</P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Для 
+этого вначале создадим для приложения каталог на жестком диске. К примеру, я 
+создал каталог<SPAN>&nbsp;</SPAN><SPAN class=ii 
+style="FONT-STYLE: italic">C:\node\helloapp</SPAN>. В этом каталоге создадим 
+файл<SPAN>&nbsp;</SPAN><SPAN class=ii>app.js</SPAN>.</P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Определим 
+в файле app.js следующий код:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+http = require("http"); <BR>http.createServer(function(request,response){ 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response.end("Hello NodeJS!"); 
+<BR>}).listen(3000, "127.0.0.1",function(){ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+console.log("Сервер начал прослушивание запросов на порту 3000"); <BR>}); </P>
+<DIV 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial"><CODE 
+class="js plain" 
+style="BOX-SIZING: content-box !important; OVERFLOW: visible !important; BORDER-TOP: 0px; HEIGHT: auto !important; FONT-FAMILY: var(--code-font-family) !important; BORDER-RIGHT: 0px; WIDTH: auto !important; VERTICAL-ALIGN: baseline !important; BACKGROUND: none transparent scroll repeat 0% 0%; WHITE-SPACE: pre !important; BORDER-BOTTOM: 0px; POSITION: static !important; FLOAT: none !important; FONT-WEIGHT: normal !important; COLOR:  !important; OUTLINE-WIDTH: 0px !important; PADDING-BOTTOM: 0px !important; FONT-STYLE: normal !important; TEXT-ALIGN: left !important; PADDING-TOP: 0px !important; OUTLINE-STYLE: none !important; PADDING-LEFT: 0px !important; MIN-HEIGHT: auto !important; BORDER-LEFT: 0px; MARGIN: 0px; OUTLINE-COLOR: invert !important; LINE-HEIGHT: 21px; PADDING-RIGHT: 0px !important; border-radius: 0px; inset: auto"><FONT 
+size=3></FONT></CODE>&nbsp;</DIV>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Вкратце 
+разберем этот код.</P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">На 
+первой строке мы получаем модуль http, который необходим для создания сервера. 
+Это встроенный модуль, и для его загрузки необходимо применить 
+функцию<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">require()</CODE>:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+http = require("http");</P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Далее 
+с помощью метода<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">createServer()</CODE><SPAN>&nbsp;</SPAN>создается 
+новый сервер для прослушивания входящих подключений и обработки запросов. В 
+качестве параметра этот метод принимает функцию, которая имеет два параметра. 
+Первый параметр request хранит всю информацию о запросе, а второй параметр 
+response используется для отправки ответа. В данном случае ответ представляет 
+простую строку "Hello NodeJS!" и отправляется с помощью 
+метода<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">response.end()</CODE>.</P>
+<P 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>Но 
+метод<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">http.createServer()</CODE><SPAN>&nbsp;</SPAN>только 
+создает сервер. Чтобы сервер начал прослушивать входящие подключения у него надо 
+вызвать метод<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">listen</CODE>:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">.listen(3000, 
+"127.0.0.1",function(){ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+console.log("Сервер начал прослушивание запросов на порту 3000"); <BR>}); </P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Этот 
+метод принимает три параметра. Первый параметр указывает на локальный порт, по 
+которому запускается сервер. Второй параметр указывает на локальный адрес. То 
+есть в данном случае сервер будет запускаться по адресу 127.0.0.1 или localhost 
+на порту 3000.</P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Третий 
+параметр представляет функцию, которая запускается при начале прослушивания 
+подключений. Здесь эта функция просто выводит диагностическое сообщение на 
+консоль.</P>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Теперь 
+запустим сервер. Для этого откроем терминал (в OS X или Linux) или командную 
+строку (в Windows). С помощью команды<SPAN>&nbsp;</SPAN><SPAN class=b 
+style="FONT-WEIGHT: bold">cd</SPAN><SPAN>&nbsp;</SPAN>перейдем к каталогу 
+приложения:</P>
+<DIV class=console 
+style="FONT-SIZE: 18px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 5px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; F: 0px"><PRE class=consoletext style="MAX-WIDTH: 99%; BORDER-TOP: rgb(204,204,204) 1px solid; FONT-FAMILY: var(--main-font-family); BORDER-RIGHT: rgb(204,204,204) 1px solid; WHITE-SPACE: pre-wrap; BORDER-BOTTOM: rgb(204,204,204) 1px solid; COLOR: ; PADDING-LEFT: 10px; CLEAR: both; BORDER-LEFT: rgb(204,204,204) 1px solid; LINE-HEIGHT: 25px; overflow-wrap: break-word">cd C:\node\helloapp
+</PRE></DIV>
+<P 
+style="FONT-SIZE: 18px; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Затем 
+вызовем следующую команду:</P>
+<DIV class=console 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 5px; LETTER-SPACING: normal; PADDING-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial'><PRE class=consoletext style="MAX-WIDTH: 99%; BORDER-TOP: rgb(204,204,204) 1px solid; FONT-FAMILY: var(--main-font-family); BORDER-RIGHT: rgb(204,204,204) 1px solid; WHITE-SPACE: pre-wrap; BORDER-BOTTOM: rgb(204,204,204) 1px solid; COLOR: ; PADDING-LEFT: 10px; CLEAR: both; BORDER-LEFT: rgb(204,204,204) 1px solid; LINE-HEIGHT: 25px; overflow-wrap: break-word">node app.js
+</PRE></DIV>
+<P 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>Она 
+запускает сервер:</P><IMG 
+style='FONT-SIZE: 18px; MARGIN-BOTTOM: 15px; MAX-WIDTH: 99%; HEIGHT: auto; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial' 
+alt="Запуск сервера NodeJS" 
+src="https://metanit.com/web/nodejs/pics/1.3.png"><SPAN 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(247,247,250); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial'></SPAN> 
+
+<P 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>Далее 
+откроем браузер и введем в адресную стоку адрес<SPAN>&nbsp;</SPAN><SPAN class=ii 
+style="FONT-STYLE: italic">http://localhost:3000/</SPAN>:</P><IMG 
+style='FONT-SIZE: 16px; MARGIN-BOTTOM: 15px; MAX-WIDTH: 99%; HEIGHT: auto; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial' 
+alt="Первое приложение на NodeJS" 
+src="https://metanit.com/web/nodejs/pics/1.4.png"><SPAN 
+style='FONT-SIZE: 16px; FONT-FAMILY: -apple-system, "system-ui", Helvetica, Arial, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(247,247,250); TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial'></SPAN> 
+
+<P 
+style='FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'>И 
+нам отобразится то сообщение, которое было послано в 
+методе<SPAN>&nbsp;</SPAN><CODE 
+style="FONT-FAMILY: monospace">response.end()</CODE>.</P>
+<P 
+style='FONT-SIZE: 18px;  WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word'><A 
+href="page3.html">Назад: Что тако 
+NodeJs</A> | <A 
+href="page26.html"><FONT 
+color=#ff0000>Далее: Глава 2. Основы работы с 
+NodeJs</FONT></A></P>
+<div class="test" id="page4.simpletest" style="clear:both;">
+<div class="question" style="padding-top: 10px; padding-bottom: 10px;" id="Q0">
+<div style="clear:both;"><strong>NodeJS - это?<br/></strong></div>
+<input type="hidden" id="Q0_h" value="" />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A0" /> программная платформа<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A1" /> язык программирования<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A2" /> объект  языка JS<br />
+<input class="button" id="submit_test" type="radio" onClick="I('Q0_h').value=this.value;" name="Q0-var" value="A3" /> библиотека JS<br />
+</div><div id="test_result" style="clear:both"><input class="submit" type="submit" onclick="checkTest();" value="Завершить тест" /></div>
+</div>
+<script src="user-tests/page4.simpletest.js" type="text/javascript"></script>
+
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li class="active"><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

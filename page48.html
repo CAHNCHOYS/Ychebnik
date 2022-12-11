@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Создание API стр. 2 - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Создание API стр. 2</h2>
+				<div class="entry">
+					
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Используя 
+Express и Node.js, мы можем реализовать полноценный API в стиле REST для 
+взаимодействия с пользователем. Архитектура REST предполагает применение 
+следующих методов или типов запросов HTTP для взаимодействия с сервером:</P>
+<UL 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial">
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word">GET</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word">POST</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word">PUT</P>
+  <LI>
+  <P style="LINE-HEIGHT: 1.56; overflow-wrap: break-word">DELETE</P></LI></UL>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Зачастую 
+REST-стиль особенно удобен при создании всякого рода Single Page Application, 
+которые нередко используют специальные javascript-фреймворки типа Angular, React 
+или Knockout.</P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">Рассмотрим, 
+как создать свой API. Для нового проекта создадим новую папку, которая пусть 
+будет называться<SPAN>&nbsp;</SPAN><SPAN class=b 
+style="FONT-WEIGHT: bold">webapp</SPAN>. Сразу определим в проекте 
+файл<SPAN>&nbsp;</SPAN><SPAN class=b 
+style="FONT-WEIGHT: bold">package.json</SPAN>:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">{ 
+<BR>&nbsp; "name": "webapp", <BR>&nbsp; "version": "1.0.0", <BR>&nbsp; 
+"dependencies": { <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "express": 
+"latest"&nbsp;<BR>&nbsp;&nbsp;&nbsp;} <BR>} <BR></P>
+<P style="FONT-SIZE: 18px">В проекте нам понадобятся express для обработки 
+запроса. Далее перейдем к этому каталогу в командной строке/терминале и для 
+добавления пакета выполним команду: npm install </P>
+<P style="FONT-SIZE: 18px">В данном случае мы создадим экспериментальный проект, 
+который будет хранить данные в файле json и который призван просто показать 
+создание API в Node.js в стиле REST. А пока добавим в папку проекта новый файл 
+users.json со следующим содержанием: </P>
+<P 
+style="FONT-SIZE: 18px; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal; LINE-HEIGHT: 1.56; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; overflow-wrap: break-word">[{ 
+<BR>&nbsp;&nbsp;&nbsp; "id":1,&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;"name":"Tom", 
+<BR>&nbsp;&nbsp;&nbsp; "age":24 <BR>&nbsp;&nbsp; 
+},&nbsp;<BR>&nbsp;&nbsp;{&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;"id":2,&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;"name":"Bob", 
+<BR>&nbsp;&nbsp;&nbsp; "age":27 <BR>&nbsp; },&nbsp;<BR>&nbsp;&nbsp;{ 
+<BR>&nbsp;&nbsp;&nbsp; "id":3, <BR>&nbsp;&nbsp;&nbsp; "name":"Alice", 
+<BR>&nbsp;&nbsp;&nbsp; "age":"23"&nbsp;<BR>}] </P>
+<P style="FONT-SIZE: 18px">Для чтения и записи в этот файл мы будем использовать 
+встроенный модуль fs. Для обработки запросов определим в проекте следующий файл 
+app.js:</P>
+<P 
+style="FONT-SIZE: 18px; BORDER-TOP: coral 1px solid; BORDER-RIGHT: coral 1px solid; BORDER-BOTTOM: coral 1px solid; BORDER-LEFT: coral 1px solid; LINE-HEIGHT: 2">const 
+express = require("express"); <BR>const fs = require("fs"); <BR>const app = 
+express(); <BR>const jsonParser = express.json(); 
+<BR>app.use(express.static(__dirname + "/public")); <BR>const filePath = 
+"users.json"; <BR>app.get("/api/users", function(req, res){ 
+<BR>&nbsp;&nbsp;&nbsp; const content = fs.readFileSync(filePath,"utf8"); 
+<BR>&nbsp;&nbsp;&nbsp; const users = JSON.parse(content); <BR>&nbsp;&nbsp;&nbsp; 
+res.send(users); <BR>}); <BR>// получение одного пользователя по id 
+<BR>app.get("/api/users/:id", function(req, res){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const id = req.params.id; // получаем id 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const content = fs.readFileSync(filePath, 
+"utf8"); <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const users = JSON.parse(content); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let user = null; 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // находим в массиве пользователя по id 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var i=0; i<USERS.LENGTH; <BR i++){> 
+if(users[i].id==id){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user = 
+users[i]; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break; 
+<BR>&nbsp;&nbsp;&nbsp; 
+}&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 
+отправляем пользователя <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(user){ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res.send(user); 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+else{ <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+res.status(404).send(); <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <BR>}); 
+<BR>// получение отправленных данных <BR>app.post("/api/users", jsonParser, 
+function (req, res) 
+{&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!req.body) return 
+res.sendStatus(400);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const 
+userName = 
+req.body.name;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const userAge 
+= req.body.age; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let user = {name: userName, 
+age: userAge}; <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let data = 
+fs.readFileSync(filePath, "utf8");&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let 
+users = JSON.parse(data);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // находим 
+максимальный id&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const id = 
+Math.max.apply(Math,users.map(function(o){return 
+o.id;}))&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // увеличиваем его на 
+единицу&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user.id = 
+id+1;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // добавляем пользователя в 
+массив&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+users.push(user);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data = 
+JSON.stringify(users);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // перезаписываем 
+файл с новыми данными&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+fs.writeFileSync("users.json", data);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+res.send(user);&nbsp;<BR>}); <BR>// удаление пользователя по id 
+<BR>app.delete("/api/users/:id", function(req, 
+res){&nbsp;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const id = 
+req.params.id;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let data = 
+fs.readFileSync(filePath, "utf8");&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let 
+users = JSON.parse(data);&nbsp;<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let index 
+= -1;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // находим индекс пользователя в 
+массиве&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var i=0; i &lt; 
+users.length; 
+i++){&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;if(users[i].id==id){&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;index=i;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;break;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+if(index &gt; -1){&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;// 
+удаляем пользователя из массива по 
+индексу&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;const user = 
+users.splice(index, 1)[0];&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;data = 
+JSON.stringify(users);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;fs.writeFileSync("users.json", 
+data);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;// отправляем 
+удаленного пользователя&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;res.send(user);&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+}&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;res.status(404).send();&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } 
+<BR>}); <BR>app.listen(3000, function(){ <BR>console.log("Сервер ожидает 
+подключения..."); <BR>}); <BR></P><A style="FONT-SIZE: 18px" 
+href="page20.html">Назад: Создание 
+Api стр. 1</A> | <A style="FONT-SIZE: 18px" 
+href="page49.html"><FONT 
+color=#ff0000>Далее: Создание Api стр. 3</FONT></A> 
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

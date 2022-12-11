@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Создание API - Учебник по NodeJS</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Интернет учебник" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+	<div id="logo">
+		<h1>Учебник по NodeJS</h1>
+		<p><em>NodeJs И Express</em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			<ul>
+				<li><a style="font-weight: bold; color: #ffffff; " href="index.html">Главная</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page1.html">Глава 1. Введение в Node js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page26.html">Глава 2. Основы работы с Node.js</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page27.html">Глава 3. Сервер</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page28.html">Глава 4. Express</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page29.html">Глава 5. MySQL</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page31.html">Глава 6. Тесты и вопросы</a></li>
+<li><a style="font-weight: bold; color: #ffffff; " href="page33.html">Для читателя</a></li>
+
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h2 class="title">Создание API</h2>
+				<div class="entry">
+					
+<P class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph"><STRONG class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f--b_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; COLOR: ; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s'>API</STRONG><SPAN>&nbsp;</SPAN>(англ. 
+Application Programming Interface&nbsp;— программный интерфейс 
+приложения)&nbsp;— это набор способов и&nbsp;правил, по&nbsp;которым различные 
+программы общаются между собой и&nbsp;обмениваются данными.</P>
+<P class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph">Все эти взаимодействия происходят с&nbsp;помощью 
+функций, классов, методов, структур, а&nbsp;иногда констант одной программы, 
+к&nbsp;которой обращаются другие. Это основной принцип работы&nbsp;API.</P>
+<P class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph">Допустим, вы&nbsp;покупаете билет в&nbsp;кино 
+с&nbsp;помощью банковской карты. Во&nbsp;время покупки терминал обращается 
+к&nbsp;API банка, который выпустил вашу карту, и&nbsp;отправляет запрос 
+на&nbsp;оплату. А&nbsp;если вы&nbsp;заказываете такси через приложение, оно 
+обращается к&nbsp;платёжной системе тоже через&nbsp;API.</P><FIGURE 
+class="stk-reset stk-image-figure" 
+style="BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: 100%; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: Graphik, sans-serif; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: relative; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; grid-template-rows: auto auto; grid-template-columns: 1fr; --stk-hotspot-color: #D0021B; none: " 
+data-ce-tag="image-figure">
+<DIV class=stk-mask 
+style="BOX-SIZING: border-box !important; OVERFLOW: hidden; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; grid-area: 1 / 1 / auto / auto" 
+data-ce-tag="mask"><IMG class="stk-image stk-reset" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: 100%; BORDER-TOP: 0px; HEIGHT: 395px; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: 515px; VERTICAL-ALIGN: top; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; COLOR: ; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; object-fit: contain' 
+src="https://skillbox.ru/upload/setka_images/07481426102022_5c20dcbcfbab07ab6c2df7e27444d5ac2afca569.png" 
+width=1540 height=866 loading="lazy" data-image-name="1.png" 
+data-image-id="42939"></DIV><FIGCAPTION class="stk-reset stk-description" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: 769px; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; COLOR: ; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 10px 0px 0px; Z-INDEX: auto; DISPLAY: block; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "PT Sans"; --stk-f_size: 14px; --stk-f_weight: 400; --stk-f_height: 21px; --stk-f_spacing: 0px; --stk-f--b_family: "Roboto"; --stk-f--b_size: 13px; --stk-f--b_weight: 700; --stk-f--b_spacing: 1px; --stk-f--b_transform: uppercase; --stk-f--i_family: "PT Sans"; --stk-f--i_size: 12px; --stk-f--i_weight: 400; --stk-f--i_style: italic; grid-area: 2 / 1 / auto / auto; -webkit-font-smoothing: antialiased; --stk-f--i_spacing: 0px; --stk-f--i_transform: none' 
+data-ce-tag="description">Так терминал отправляет запрос в&nbsp;банк, чтобы 
+человек купил билет в&nbsp;кино<BR 
+style="BOX-SIZING: border-box !important; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px" 
+data-gtm-vis-has-fired-10171822_255="1"></FIGCAPTION></FIGURE>
+<P class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph">Программный интерфейс похож на&nbsp;договор между 
+клиентом и&nbsp;продавцом. Только клиентом выступает приложение, которому нужны 
+данные, а&nbsp;продавцом&nbsp;— сервер или ресурс, с&nbsp;которого мы&nbsp;эти 
+данные берём. В&nbsp;таком договоре прописываются условия того, как и&nbsp;какие 
+данные может получить клиент.</P>
+<P class="stk-theme_26309__mb_05 stk-reset" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px 0px 13px; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph">API встречается практически везде:</P>
+<UL>
+  <LI>
+  <DIV class="stk-reset stk-list-item" 
+  style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 1.3em; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+  data-ce-tag="list-item">В&nbsp;языках программирования он&nbsp;помогает 
+  функциям корректно общаться друг с&nbsp;другом. Вызывающая функция должна 
+  соблюдать тип данных и&nbsp;последовательность параметров вызываемой 
+  функции.</DIV>
+  <LI>
+  <P class="stk-reset stk-list-item" 
+  style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; MARGIN-TOP: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; MARGIN-LEFT: 1.3em; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; MARGIN-RIGHT: 0px; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+  data-ce-tag="list-item">В&nbsp;операционной системе он&nbsp;помогает 
+  программам получать данные из&nbsp;памяти или менять настройки&nbsp;ОС. 
+  Поэтому, чтобы разрабатывать приложения под конкретную операционную систему, 
+  нужно знать её&nbsp;API.</P>
+  <LI>
+  <DIV class="stk-reset stk-list-item" 
+  style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px 0px 0px 1.3em; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+  data-ce-tag="list-item">В&nbsp;вебе сервисы общаются друг с&nbsp;другом через 
+  программный интерфейс. Если API открытый, то&nbsp;официальную документацию 
+  по&nbsp;работе с&nbsp;ним публикуют создатели сервиса-источника. Так, 
+  например, выглядит<SPAN>&nbsp;</SPAN><A class=stk-reset 
+  style="LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; OVERFLOW: visible; CURSOR: pointer; TEXT-DECORATION: underline; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; COLOR: ; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; MIN-HEIGHT: 0px; BORDER-LEFT: 0px; MARGIN: 0px; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s" 
+  href="https://core.telegram.org/" target=_blank>документация 
+  Telegram</A>.</DIV></LI></UL>
+<P class="stk-reset stk-list-item" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px 0px 0px 1.3em; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="list-item">&nbsp;</P>
+<P class="stk-reset stk-list-item" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px 0px 0px 1.3em; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="list-item"><A 
+href="page19.html">Назад: 
+Router</A> | <A 
+href="page48.html"><FONT 
+color=#ff0000>Далее: создане API стр.2</FONT></A></P>
+<P class="stk-reset stk-list-item" 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; FONT-SIZE: 18px; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: 0px 0px; WHITE-SPACE: normal; WORD-SPACING: normal; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; MARGIN: 0px 0px 0px 1.3em; Z-INDEX: auto; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="list-item">&nbsp;</P>
+<P class=stk-reset 
+style='LIST-STYLE-TYPE: none; BOX-SIZING: content-box; QUOTES: none; OVERFLOW: visible; CURSOR: inherit; TEXT-DECORATION: none; MAX-WIDTH: none; BORDER-TOP: 0px; HEIGHT: auto; FONT-FAMILY: var(--stk-f_family),"stk"; BORDER-RIGHT: 0px; WIDTH: auto; VERTICAL-ALIGN: baseline; BACKGROUND: rgb(255,255,255) 0px 0px; WHITE-SPACE: normal; WORD-SPACING: 0px; TABLE-LAYOUT: auto; TEXT-OVERFLOW: clip; BORDER-BOTTOM: 0px; POSITION: static; TEXT-TRANSFORM: none; TEXT-ALIGN-LAST: auto; WORD-BREAK: normal; FLOAT: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); OUTLINE-WIDTH: 0px; PADDING-BOTTOM: 0px; FONT-STYLE: normal; PADDING-TOP: 0px; CONTENT: normal; OUTLINE-STYLE: none; PADDING-LEFT: 0px; CLEAR: none; FILTER: none; BORDER-LEFT: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; Z-INDEX: auto; LETTER-SPACING: normal; OUTLINE-COLOR: invert; PADDING-RIGHT: 0px; MAX-HEIGHT: none; VISIBILITY: visible; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; overflow-wrap: break-word; border-radius: 0px; inset: auto; animation: 0s ease 0s 1 normal none running none; box-shadow: none; columns: auto auto; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; image-rendering: auto; -webkit-mask: none; mask: none; mix-blend-mode: normal; opacity: 1; pointer-events: all; text-shadow: none; text-size-adjust: none; transform-origin: 50% 50% 0px; transform: none; transition: none 0s ease 0s; flex: 0 0 auto; --stk-f_family: "GraphikLCG-Regular"; --stk-f_size: 18px; --stk-f_weight: 400; --stk-f_height: 26px; --stk-f_spacing: 0px; --stk-f--b_family: "GraphikLCG-Semibold"; --stk-f--b_size: 18px; --stk-f--b_weight: 400; --stk-f--b_spacing: 0px; --stk-f--b_transform: none; --stk-f--i_family: "GraphikLCG-Regular"; --stk-f--i_size: 18px; --stk-f--i_weight: 400; --stk-f--i_style: regular' 
+data-ce-tag="paragraph">&nbsp;</P>
+
+			</div>
+		  </div>
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Темы учебника</h2>
+					<ul>
+						<li><a style="" href="page3.html">Что такое Node.js. Начало работы</a></li>
+<li><a style="" href="page4.html">Первое приложение</a></li>
+<li><a style="" href="page5.html">Модули</a></li>
+<li><a style="" href="page8.html">Объект global и глобальные переменные</a></li>
+<li><a style="" href="page9.html">Асинхронность в Node.js</a></li>
+<li><a style="" href="page10.html">События</a></li>
+<li><a style="" href="page12.html">Stream</a></li>
+<li><a style="" href="page53.html">Методы работы с файлами</a></li>
+<li><a style="" href="page42.html">Создание сервера</a></li>
+<li><a style="" href="page13.html">Отправка файлов</a></li>
+<li><a style="" href="page14.html">Получение данных от клиента</a></li>
+<li><a style="" href="page15.html">Начало работы с Express</a></li>
+<li><a style="" href="page16.html">Отправка ответа</a></li>
+<li><a style="" href="page17.html">Статические файлы</a></li>
+<li><a style="" href="page18.html">POST-запросы и отправка форм</a></li>
+<li><a style="" href="page19.html">Router</a></li>
+<li class="active"><a style="" href="page20.html">Создание API</a></li>
+<li><a style="" href="page21.html">Подключение к MySQL</a></li>
+<li><a style="" href="page22.html">Выполнение запросов к MySQL</a></li>
+<li><a style="" href="page51.html">Основные операции с данными</a></li>
+<li><a style="" href="page55.html">Тестирование ч.1</a></li>
+<li><a style="" href="page56.html">Тестирование ч.2</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Автор: Седых Алексей | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
