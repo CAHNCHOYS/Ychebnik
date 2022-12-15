@@ -957,3 +957,61 @@ table tr input{
   height: 30px;
   font-size: 18px;
 }
+
+
+[data-spollers] button[data-spoller] {
+	width: 100%;
+	background-color: white;
+	text-align: left;
+	display: block;
+	cursor: auto;
+ }
+ ._init [data-spoller] {
+	padding: 0px 20px 0px 0px;
+	cursor: pointer;
+	position: relative;
+ }
+ ._init [data-spoller]._active::before {
+	transform: rotate(0deg);
+ }
+ ._init [data-spoller]._active::after {
+	transform: rotate(180deg);
+ }
+ ._init [data-spoller]::before, ._init [data-spoller]::after {
+	content: "";
+	z-index: 2;
+	position: absolute;
+	width: 15px;
+	display: inline-block;
+	height: 2px;
+	background-color: black;
+	top: 50%;
+	display: block;
+	transition: all 0.8s ease 0s;
+ }
+ ._init [data-spoller]::after {
+	right: 4px;
+ }
+ ._init [data-spoller]::before {
+	right: 4px;
+	transform: rotate(90deg);
+ }
+ ._init [data-spoller]:not(._active) {
+	margin-bottom: 0px;
+ }
+ ._init button[data-spoller] {
+	cursor: pointer;
+ }
+
+
+
+ .spollers{
+	border: none;
+	font-size: 18px;
+	color: black;
+	padding: 0px 0px 0px 20px;
+ }
+
+ .spollers button{
+	margin-bottom: 10px;
+ }
